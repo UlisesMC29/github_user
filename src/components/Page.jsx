@@ -6,13 +6,9 @@ import TwtIcon from '../assets/icon-twitter.svg';
 import WebIcon from '../assets/icon-website.svg';
 import CompanyIcon from '../assets/icon-company.svg';
 import "../Styles/page.css"
-import { ThemeContext } from '../App';
-// import { useNavigate } from 'react-router-dom';
 
-// fetch('https://docs.github.com/en/rest/ users/users#get-a-user')
-//     .then(response => response.json())
-//     .then(data => console.log(data))
-//     .catch(error => console.log(error))
+
+
 export const ThemeContext = createContext(null)
 
 const Page = () => {
