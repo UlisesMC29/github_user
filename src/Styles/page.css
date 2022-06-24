@@ -1,7 +1,15 @@
 .main{
     display: flex;
     justify-content: center;
-    background-color: #f6f8ff;
+    /* background-color: #f6f8ff; */
+}
+
+#light{
+  background-color: #f6f8ff;
+}
+
+#dark{
+  background-color: #141d2f;
 }
 
 
@@ -16,6 +24,19 @@
   height: 38px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+#light .header{
+  color: #222731;
+}
+
+#dark .header{
+  /* background-color: #1e2a47; */
+  color: white;
+}
+
+#dark .header-txt{
+  color: white;
 }
 
 .header-title{
@@ -76,15 +97,27 @@
   box-shadow: 5px 16px 30px -5px rgba(70, 96, 187, 0.198567);
 }
 
+#light .search-input{
+  background-color: #fff;
+  color: #222731;
+}
+
+#dark .search-input{
+  background-color: #1e2a47;
+  color: white;
+}
+
 .search-input:hover{
   cursor: pointer;
 }
+
 
 
 input{
   width: 254px;
   height: 25px;
   font-family: 'Space Mono', monospace;
+  font-size: 18px;
   font-weight: 400;
   line-height: 25px;
   margin: 0px 280px 0px 0px;
@@ -92,6 +125,15 @@ input{
   outline: none;
   padding: 0;
   background: none;
+}
+
+#light input {
+  color: black;
+}
+
+#dark ::placeholder,
+input {
+  color: white;
 }
 
 
@@ -137,11 +179,14 @@ input{
   border-radius: 15px;
 }
 
+#dark .card-profile{
+  background-color:#1e2a47;
+}
+
 .card-header{
   display: flex;
   height: 117px;
 }
-
 
 .date-profile{
   font-family: 'Space Mono', monospace;
@@ -192,12 +237,40 @@ input{
   margin-top: 20px 0px 0px 0px;
 }
 
+#light .bio-profile{
+  color: #697C9A;
+}
+
+#dark .bio-profile{
+  color: #fff;
+}
+
 .title-profile{
   font-family: 'Space Mono', monospace;
   font-size: 26px;
   font-weight: 700;
   line-height: 39px;
   margin: 44px 138px 0px 37px;
+}
+
+#dark .title-profile,
+.date-profile{ 
+  color: white;
+}
+
+#light .date-profile{
+  color: #697C9A;
+}
+
+
+
+#light .info-center {
+  background-color: #F6F8FF;
+}
+
+#dark .info-center{
+  background-color: #141d2f;
+  color: white;
 }
 
 .info-center{
@@ -214,6 +287,7 @@ input{
   margin: 15px 0px 0px 0px;
 }
 
+
 .date-first{
   padding-left: 32px;
 }
@@ -229,6 +303,14 @@ input{
   line-height: 19px;
   color: #4B6A9B;
   margin: 0;
+}
+
+#light .title-date > h4{
+  color: #697C9A;
+}
+
+#dark .title-date > h4{
+  color: #fff;
 }
 
 .numbers-date{
@@ -263,6 +345,20 @@ input{
   grid-template-columns: repeat(2, 1fr);
   margin-left: 202px;
   padding-bottom: 48px;
+}
+
+#light .txt-company,
+#light .txt-web,
+#light .txt-twt,
+#light .txt-ubi{
+  color: #4B6A9B;
+}
+
+#dark .txt-company,
+#dark .txt-web,
+#dark .txt-twt,
+#dark .txt-ubi{
+  color: #fff;
 }
 
 .ubi-profile{
@@ -347,3 +443,4 @@ input{
   padding-left: 16px;
   color: #4B6A9B;
 }
+

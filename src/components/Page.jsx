@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react';
 import Moon from '../assets/icon-moon.svg';
+import Sun from '../assets/icon-sun.svg';
 import Search from '../assets/icon-search.svg';
 import LocaIcon from '../assets/icon-location.svg';
 import TwtIcon from '../assets/icon-twitter.svg';
@@ -12,7 +13,7 @@ import "../Styles/page.css"
 export const ThemeContext = createContext(null)
 
 const Page = () => {
-    const [theme, setTheme] = useState('ligth');
+    const [theme, setTheme] = useState('dark');
 
     const toggleTheme = () => {
         setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
@@ -26,15 +27,15 @@ const Page = () => {
                         <div className='title-container'>
                             <h1 className="header-title">devfinder</h1>
                         </div>
-                        <div className='dark-container'>
-                            <p className="header-txt">DARK</p>
-                            <img className='moon-icon' src={Moon} alt="Moon Icon" />
+                        <div onClick={toggleTheme} className='dark-container'>
+                            <p className="header-txt">{theme === 'light' ? 'DARK' : 'LIGHT'}</p>
+                            <img className='moon-icon' src={theme === 'light' ? Moon : Sun} alt="Moon Icon" />
                         </div>
                     </div>
 
                     <div className='search-input'>
                         <img className='icon-search' src={Search} alt="Search Icon" />
-                        <input type="text" placeholder='Search GitHub username...' />
+                        <input className='txt-input' type="text" placeholder='Search GitHub username...' />
                         <p className='btn-search'>Search</p>
                     </div>
 
