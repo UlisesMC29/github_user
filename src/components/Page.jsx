@@ -1,25 +1,56 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import Moon from '../assets/icon-moon.svg';
 import Sun from '../assets/icon-sun.svg';
-import Search from '../assets/icon-search.svg';
 import LocaIcon from '../assets/icon-location.svg';
 import TwtIcon from '../assets/icon-twitter.svg';
 import WebIcon from '../assets/icon-website.svg';
 import CompanyIcon from '../assets/icon-company.svg';
+import { SearchBar } from './SearchBar';
 import "../Styles/page.css"
+import { useSelector } from 'react-redux';
+// import Searcher from '../redux/reducers/buscadorReducer';
 
 
 
 export const ThemeContext = createContext(null)
 
 const Page = () => {
+
+    // const Searcher = useSelector((state) => state.Searcher)
+
+    //Sección para el uso del tema dark/light-----------------------
     const [theme, setTheme] = useState('dark');
 
     const toggleTheme = () => {
         setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
     };
+    //-------------------------------------------------------------
+
+
+
+    //Funcionamiento de la REST API-----------------------------------
+    // const nameTest = 'octocat'
+    // const linkAPI = `https://api.github.com/users/${nameTest}`;
+
+
+    // // Manipulación de datos de las REST API
+    // const [nameAPI, setNameAPI] = useState(null);
+    // useEffect(() => {
+    //     fetch(linkAPI)
+    //         .then((response) => response.json())
+    //         .then((user) => {
+    //             setNameAPI(user.name);
+    //         });
+    // }, []);
+
+    // const Searcher = useSelector((state) => state.Searcher)
+
+    const Searcher = useSelector((state) => state.Searcher)
+
+
 
     return (
+
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
             <div className='main' id={theme}>
                 <div className="App">
@@ -33,22 +64,18 @@ const Page = () => {
                         </div>
                     </div>
 
-                    <div className='search-input'>
-                        <img className='icon-search' src={Search} alt="Search Icon" />
-                        <input className='txt-input' type="text" placeholder='Search GitHub username...' />
-                        <p className='btn-search'>Search</p>
-                    </div>
+                    <SearchBar />
 
                     <div className='card-profile'>
                         <div className='info-up'>
                             <div className='header-profile'>
-                                <img className='img-profile' src="" alt="GitHub profile picture" />
-                                <h1 className='title-profile'>The Octocat</h1>
-                                <p className='date-profile'>Joined 25 Jan 2011</p>
+                                <img className='img-profile' src={Searcher.user[0].avatar_url} alt="GitHub profile picture" />
+                                <h1 className='title-profile'>{Searcher.user[0].name}</h1>
+                                <p className='date-profile'>Joined {Searcher.user[0].created_at}</p>
                             </div>
                             <div className='body-profile'>
-                                <h3 className='user-profile'>@octocat</h3>
-                                <p className='bio-profile'>This profile has no bio</p>
+                                <h3 className='user-profile'>@{Searcher.user[0].login}</h3>
+                                <p className='bio-profile'>{Searcher.user[0].bio === null ? 'This profile has no bio' : Searcher.user[0].bio}</p>
                             </div>
                         </div>
                         <div className='info-center'>
@@ -58,27 +85,27 @@ const Page = () => {
                                 <h4 className='date-others'>Following</h4>
                             </div>
                             <div className='numbers-date'>
-                                <h2 className='number-repos'>8</h2>
-                                <h2 className='number-followers'>3938</h2>
-                                <h2 className='number-following'>9</h2>
+                                <h2 className='number-repos'>{Searcher.user[0].public_repos}</h2>
+                                <h2 className='number-followers'>{Searcher.user[0].followers}</h2>
+                                <h2 className='number-following'>{Searcher.user[0].following}</h2>
                             </div>
                         </div>
                         <div className='info-down'>
                             <div className='ubi-profile'>
                                 <img className='icon-ubi' src={LocaIcon} alt="Icon location" />
-                                <h4 className='txt-ubi'>San Francisco</h4>
+                                <h4 className='txt-ubi'>{Searcher.user[0].location}</h4>
                             </div>
                             <div className='twt-profile'>
                                 <img className='icon-twt' src={TwtIcon} alt="Icon Profile" />
-                                <h4 className='txt-twt'>Not Available</h4>
+                                <h4 className='txt-twt'>{Searcher.user[0].twitter_username === null ? 'Not Available' : Searcher.user[0].twitter_username}</h4>
                             </div>
                             <div className='web-profile'>
                                 <img className='icon-web' src={WebIcon} alt="Icon Website" />
-                                <h4 className='txt-web'>https://github.blog</h4>
+                                <h4 className='txt-web'>{Searcher.user[0].blog}</h4>
                             </div>
                             <div className='compa-profile'>
                                 <img className='icon-company' src={CompanyIcon} alt="Icon Company" />
-                                <h4 className='txt-company'>@github</h4>
+                                <h4 className='txt-company'>{Searcher.user[0].company}</h4>
                             </div>
                         </div>
 
