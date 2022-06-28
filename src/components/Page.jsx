@@ -28,25 +28,9 @@ const Page = () => {
 
 
 
-    //Funcionamiento de la REST API-----------------------------------
-    // const nameTest = 'octocat'
-    // const linkAPI = `https://api.github.com/users/${nameTest}`;
-
-
-    // // Manipulación de datos de las REST API
-    // const [nameAPI, setNameAPI] = useState(null);
-    // useEffect(() => {
-    //     fetch(linkAPI)
-    //         .then((response) => response.json())
-    //         .then((user) => {
-    //             setNameAPI(user.name);
-    //         });
-    // }, []);
-
     // const Searcher = useSelector((state) => state.Searcher)
 
     const Searcher = useSelector((state) => state.Searcher)
-
 
 
     return (

@@ -202,6 +202,7 @@ input {
   width: 117px;
   height: 117px;
   margin: 48px 0px 0px 48px;
+  border-radius: 50%;
 }
 
 .header-profile{
@@ -247,9 +248,10 @@ input {
 
 .title-profile{
   font-family: 'Space Mono', monospace;
-  font-size: 26px;
+  font-size: 21px;
+  float: left;
   font-weight: 700;
-  line-height: 39px;
+  /* line-height: 39px; */
   margin: 44px 138px 0px 37px;
 }
 
@@ -365,6 +367,7 @@ input {
   display: flex;
   align-items: center;
   height: 19px;
+  width: 170px;
 }
 
 .icon-ubi{
@@ -386,6 +389,7 @@ input {
   display: flex;
   align-items: center;
   height: 19px;
+  width: 200px
 }
 
 .icon-twt{
@@ -407,6 +411,7 @@ input {
   display: flex;
   align-items: center;
   height: 19px;
+  width: 170px;
 }
 
 .icon-web{
@@ -433,6 +438,7 @@ input {
   display: flex;
   align-items: center;
   height: 19px;
+  width: 200px;
 }
 
 .txt-company{
